@@ -5,14 +5,14 @@ from selenium.webdriver.common.keys import Keys
 
 from kaynnistys import kaynnista_selain
 
+
 ##########
 ################### KOODI ALKAA ###########################
 ##########
 
+# Käynnistä selain ja mene osoitteeseen
 selain = kaynnista_selain()
-
-selain.get("https://verkkokauppa.com") # Kirjoita osoite osoite-kenttään ja mene selaimella sinne
-
+selain.get("https://verkkokauppa.com")
 
 
 # Hakukenttä & haku
@@ -20,7 +20,6 @@ time.sleep(5) # Odota viisi sekuntia, että sivu latautuu
 hakuboksi = "/html/body/div[1]/div[1]/header/div/nav/form/div/input" # Etsi hakukenttä
 selain.find_element_by_xpath(hakuboksi).send_keys("Macbook pro") # Etsi hakukenttä ja kirjoita hakukenttään sanat Macbook pro
 selain.find_element_by_xpath(hakuboksi).send_keys(Keys.RETURN) # Etsi hakukenttä ja paina enteriä
-
 
 
 # Ota ensimmäisen Macbookin hinta
@@ -36,7 +35,6 @@ hinta_kohta = "/html/body/div[1]/div[1]/div/div/main/section/aside/div[2]/div[1]
 lahetystiedot_kohta = "/html/body/div[1]/div[1]/div/div/main/section/aside/div[2]/div[2]/div[1]/div[1]/span"
 ekan_koneen_hinta = selain.find_element_by_xpath(hinta_kohta).text
 ekan_koneen_lahetystiedot = selain.find_element_by_xpath(lahetystiedot_kohta)
-
 
 selain.close()
 selain.quit()
