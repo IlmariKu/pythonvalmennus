@@ -1,3 +1,8 @@
-README:
+# Python-kurssin materiaalit
 
-- Ei tekstiä toistaiseksi
+
+### Käynnistä interaktiivinen-komentorivi
+
+- `ipython`
+- `from selain import kaynnista_selain`
+- `selain = kaynnista_selain()`
