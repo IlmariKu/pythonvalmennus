@@ -38,6 +38,7 @@ def check_and_get_chromedriver():
     if is_chromedriver_installed() is True:
         return
 
+    print("Asennetaan vaadittuja paketteja...")
     operating_system = platform.system()
     if operating_system == "Darwin": # MacOS
         CHROME_OS = MAC_CHROME
