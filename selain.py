@@ -27,7 +27,9 @@ BASE_URL = "https://chromedriver.storage.googleapis.com/88.0.4324.96/"
 MAC_CHROME = "chromedriver_mac64.zip"
 WINDOWS_CHROME = "chromedriver_mac64.zip"
 LINUX_CHROME = "chromedriver_linux64.zip"
-CHROMEDRIVER_PATH = os.getcwd() + "/asennukset/chromedriver"
+ASENNUKSET_PATH = __file__.replace(
+    "selain.py", "") + "/asennukset/"
+CHROMEDRIVER_PATH = ASENNUKSET_PATH + "chromedriver"
 
 
 def kaynnista_selain(kaynnista_taustalla=False):
@@ -36,20 +38,20 @@ def kaynnista_selain(kaynnista_taustalla=False):
 
     options = Options()
     options.headless = kaynnista_taustalla
-
     return Chrome(executable_path=CHROMEDRIVER_PATH, options=options)
 
 
 def check_and_get_chromedriver():
     def is_chromedriver_installed():
-        return os.path.isfile(os.getcwd() + "/asennukset/chromedriver")
+        return os.path.isfile(CHROMEDRIVER_PATH)
 
     def unzip_chromedriver(ZIP_PATH):
         with zipfile.ZipFile(ZIP_PATH, "r") as zip_ref:
-            zip_ref.extractall("asennukset")
+            zip_ref.extractall(ASENNUKSET_PATH)
         os.remove(ZIP_PATH)
 
     if is_chromedriver_installed() is True:
+        print("\n Chromedriver on asennettu tietokoneellesi oikein.")
         return
 
     print("Asennetaan vaadittuja paketteja...")
