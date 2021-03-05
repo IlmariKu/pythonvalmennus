@@ -1,8 +1,5 @@
 # Python-kurssin materiaalit
 
+### Lataa tämä koodi ylläolevasta Code ja Download Zip-nappulasta.
 
-### Käynnistä interaktiivinen-komentorivi
-
-- `ipython`
-- `from selain import kaynnista_selain`
-- `selain = kaynnista_selain()`
+### Seuraa ohjeita ennakkoasennus-sähköpostista
