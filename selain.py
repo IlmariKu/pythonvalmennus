@@ -1,10 +1,21 @@
 import os
+import sys
 import platform
-import wget
 import zipfile
-from selenium.webdriver import Chrome
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.common.keys import Keys
+
+try:
+    import wget
+    from selenium.webdriver import Chrome
+    from selenium.webdriver.chrome.options import Options
+    from selenium.webdriver.common.keys import Keys
+except ImportError:
+    import subprocess
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "selenium"])
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "wget"])
+    import wget
+    from selenium.webdriver import Chrome
+    from selenium.webdriver.chrome.options import Options
+    from selenium.webdriver.common.keys import Keys
 
 
 class PlatformError(Exception):
@@ -50,7 +61,8 @@ def check_and_get_chromedriver():
     elif operating_system == "Linux":  # MacOS
         CHROME_OS = LINUX_CHROME
     else:
-        raise PlatformError("Platform " + str(operating_system) + " is not recognized")
+        raise PlatformError(
+            "Platform " + str(operating_system) + " is not recognized")
 
     wget.download(BASE_URL + CHROME_OS)
     unzip_chromedriver(os.getcwd() + "/" + CHROME_OS)
