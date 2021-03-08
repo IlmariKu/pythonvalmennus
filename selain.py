@@ -53,7 +53,6 @@ def check_and_get_chromedriver():
         os.remove(ZIP_PATH)
 
     if is_chromedriver_installed() is True:
-        print("\n Chromedriver on asennettu tietokoneellesi oikein.")
         return
 
     print("Asennetaan vaadittuja paketteja...")
