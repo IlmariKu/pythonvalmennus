@@ -11,21 +11,25 @@ from selain import kaynnista_selain
 
 
 selain = kaynnista_selain()
-selain.get("https://jimms.fi")  # Kirjoita osoite osoite-kenttään ja mene selaimella sinne
+# Kirjoita osoite osoite-kenttään ja mene selaimella sinne
+selain.get("https://jimms.fi")
 
 
 # Hakukenttä & haku
 time.sleep(5)  # Odota viisi sekuntia, että sivu latautuu
 hakuboksi = '//*[@id="qpsv2-topinput"]'  # Etsi hakukenttä
-selain.find_element_by_xpath(hakuboksi).send_keys("Macbook Pro 13 tietokone hopea 512GB M1")  # Etsi hakukenttä ja kirjoita hakukenttään sanat Macbook pro
-selain.find_element_by_xpath(hakuboksi).send_keys(Keys.RETURN)  # Etsi hakukenttä ja paina enteriä
+# Etsi hakukenttä ja kirjoita hakukenttään sanat Macbook pro
+selain.find_element_by_xpath(hakuboksi).send_keys(
+    "Macbook Pro 13 tietokone hopea 512GB M1")
+selain.find_element_by_xpath(hakuboksi).send_keys(
+    Keys.RETURN)  # Etsi hakukenttä ja paina enteriä
 
 
 # Etsi ensimmäinen Macbook
 time.sleep(5)  # Odota viisi sekuntia
 ensimmainen_hakutulos = "/html/body/div[3]/div[2]/div/div[2]/div/div[2]/div[2]/div[2]/div/div[2]/div/div[3]/div[1]/a/span"
 selain.find_element_by_xpath(ensimmainen_hakutulos).click()
-time.sleep(5) # Odotetaan, että sivu latautuu
+time.sleep(5)  # Odotetaan, että sivu latautuu
 
 
 # Otetaan koneen hinta, toimitusaika-arvio ja saatavuus
@@ -41,11 +45,14 @@ toimitusaika = selain.find_element_by_xpath(lahetystiedot_sivulla).text
 saatavuus = selain.find_element_by_xpath(saatavuus_sivulla).text
 
 # Tulosta tiedot näkyväksi
-print("\n\n\n") # Tyhjää tilaa koodin jälkeen, jotta on helpompi nähdä
+print("\n\n\n")  # Tyhjää tilaa koodin jälkeen, jotta on helpompi nähdä
 print("Tietokone: " + kone)
 print("Kneen hinta: " + hinta)
 print("Toimitusaika-arvio: " + toimitusaika)
 print("Saatavuus tukkurilla: " + saatavuus)
+
+# Otetaan screenshot näytöstä
+selain.save_screenshot("kuva-tietokoneista.png")
 
 # Sulje selain, kun olet ajanut ohjelman
 selain.close()

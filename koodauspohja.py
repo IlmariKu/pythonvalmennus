@@ -1,5 +1,3 @@
-# Second phase
-
 import time
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
@@ -19,7 +17,7 @@ selain = kaynnista_selain()
 ################### KOODI LOPPUU ###########################
 ##########
 #################################
-sulje_selain_lopuksi = "ei"
+sulje_selain_lopuksi = "kylla"
 if sulje_selain_lopuksi == "kylla":
     selain.close()
     selain.quit()
