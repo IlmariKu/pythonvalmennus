@@ -38,10 +38,25 @@ def kaynnista_selain(kaynnista_taustalla=False):
 
     check_and_get_chromedriver()
 
+    def wrong_spelling(komennossa_on_s_liikaa=""):
+        print("Valitsit komennon vahingossa väärin. Poista kirjoittamastasi komennosta -s kirjain lopusta. element, ei elements")
+
     options = Options()
     options.headless = kaynnista_taustalla
     options.add_extension('./asennukset/xpath.crx')
-    return Chrome(executable_path=CHROMEDRIVER_PATH, options=options)
+
+    selain = Chrome(executable_path=CHROMEDRIVER_PATH, options=options)
+
+    selain.find_elements_by_class_name = wrong_spelling
+    selain.find_elements_by_css_selector = wrong_spelling
+    selain.find_elements_by_id = wrong_spelling
+    selain.find_elements_by_link_text = wrong_spelling
+    selain.find_elements_by_name = wrong_spelling
+    selain.find_elements_by_partial_link_text = wrong_spelling
+    selain.find_elements_by_tag_name = wrong_spelling
+    selain.find_elements_by_xpath = wrong_spelling
+
+    return selain
 
 
 def check_and_get_chromedriver():
