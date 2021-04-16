@@ -14,6 +14,8 @@ except ImportError:
     import subprocess
     subprocess.check_call([sys.executable, "-m", "pip", "install", "selenium"])
     subprocess.check_call([sys.executable, "-m", "pip", "install", "wget"])
+    subprocess.check_call(
+        [sys.executable, "-m", "pip", "install", "ipykernel"])
     import wget
     from selenium.webdriver import Chrome
     from selenium.webdriver.chrome.options import Options
