@@ -40,6 +40,7 @@ def kaynnista_selain(kaynnista_taustalla=False):
 
     options = Options()
     options.headless = kaynnista_taustalla
+    options.add_extension('./asennukset/xpath.crx')
     return Chrome(executable_path=CHROMEDRIVER_PATH, options=options)
 
 
