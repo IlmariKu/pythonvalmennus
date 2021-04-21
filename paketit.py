@@ -32,7 +32,7 @@ MAC_CHROME = "chromedriver_mac64.zip"
 WINDOWS_CHROME = "chromedriver_mac64.zip"
 LINUX_CHROME = "chromedriver_linux64.zip"
 ASENNUKSET_PATH = __file__.replace(
-    "selain.py", "") + "/asennukset/"
+    "paketit.py", "") + "/asennukset/"
 CHROMEDRIVER_PATH = ASENNUKSET_PATH + "chromedriver"
 
 
@@ -47,18 +47,18 @@ def kaynnista_selain(kaynnista_taustalla=False):
     options.headless = kaynnista_taustalla
     options.add_extension('./asennukset/xpath.crx')
 
-    selain = Chrome(executable_path=CHROMEDRIVER_PATH, options=options)
+    chromeselain = Chrome(executable_path=CHROMEDRIVER_PATH, options=options)
 
-    selain.find_elements_by_class_name = wrong_spelling
-    selain.find_elements_by_css_selector = wrong_spelling
-    selain.find_elements_by_id = wrong_spelling
-    selain.find_elements_by_link_text = wrong_spelling
-    selain.find_elements_by_name = wrong_spelling
-    selain.find_elements_by_partial_link_text = wrong_spelling
-    selain.find_elements_by_tag_name = wrong_spelling
-    selain.find_elements_by_xpath = wrong_spelling
+    chromeselain.find_elements_by_class_name = wrong_spelling
+    chromeselain.find_elements_by_css_selector = wrong_spelling
+    chromeselain.find_elements_by_id = wrong_spelling
+    chromeselain.find_elements_by_link_text = wrong_spelling
+    chromeselain.find_elements_by_name = wrong_spelling
+    chromeselain.find_elements_by_partial_link_text = wrong_spelling
+    chromeselain.find_elements_by_tag_name = wrong_spelling
+    chromeselain.find_elements_by_xpath = wrong_spelling
 
-    return selain
+    return chromeselain
 
 
 def check_and_get_chromedriver():

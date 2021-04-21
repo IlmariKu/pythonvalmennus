@@ -1,6 +1,6 @@
 import csv
 import time
-from selain import kaynnista_selain
+from paketit import kaynnista_selain
 
 selain = kaynnista_selain()
 selain.get("https://ilmariku.github.io/robottikurssi/asennusonnistui.html")
