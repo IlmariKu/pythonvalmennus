@@ -19,11 +19,6 @@ except ImportError:
     from selenium.webdriver.chrome.options import Options
     import chromedriver_autoinstaller
 
-
-class PlatformError(Exception):
-    pass
-
-
 ASENNUKSET_PATH = __file__.replace(
     "paketit.py", "") + "asennukset/"
 CRX_PATH = ASENNUKSET_PATH + 'xpath.crx'
@@ -33,6 +28,8 @@ def kaynnista_selain(kaynnista_taustalla=False):
 
     def wrong_spelling(komennossa_on_s_liikaa=""):
         print("Valitsit komennon vahingossa väärin. Poista kirjoittamastasi komennosta -s kirjain lopusta. element, ei elements")
+
+    chromedriver_autoinstaller.install()
 
     options = Options()
     options.headless = kaynnista_taustalla
@@ -50,6 +47,3 @@ def kaynnista_selain(kaynnista_taustalla=False):
     chromeselain.find_elements_by_xpath = wrong_spelling
 
     return chromeselain
-
-
-chromedriver_autoinstaller.install()
