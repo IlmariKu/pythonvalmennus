@@ -1,4 +1,5 @@
-import time
+#!/usr/bin/env python3
+
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
 

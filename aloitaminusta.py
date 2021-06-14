@@ -1,4 +1,5 @@
-import csv
+#!/usr/bin/env python3
+
 import time
 from paketit import kaynnista_selain
 
