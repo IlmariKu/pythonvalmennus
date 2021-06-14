@@ -34,6 +34,11 @@ except ModuleNotFoundError:
     from selenium.webdriver.chrome.options import Options
     import chromedriver_autoinstaller
 
+
+print("Pythonin versio on " +
+      str(sys.version_info[0]) + "." + str(sys.version_info[1]))
+
+
 ASENNUKSET_PATH = __file__.replace(
     "paketit.py", "") + "asennukset/"
 CRX_PATH = ASENNUKSET_PATH + 'xpath.crx'
@@ -41,7 +46,7 @@ CRX_PATH = ASENNUKSET_PATH + 'xpath.crx'
 
 def kaynnista_selain(kaynnista_taustalla=False):
 
-    def wrong_spelling(komennossa_on_s_liikaa=""):
+    def wrong_spelling():
         print("Valitsit komennon vahingossa väärin. Poista kirjoittamastasi komennosta -s kirjain lopusta. element, ei elements")
 
     chromedriver_autoinstaller.install()
