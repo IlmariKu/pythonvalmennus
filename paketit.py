@@ -2,21 +2,34 @@
 
 import sys
 
-asennukset = [
-    "selenium",
-    "ipykernel"
-    "chromedriver-autoinstaller"
-]
+
+def install_missing_dependencies():
+
+    asennukset = [
+        "selenium",
+        "ipykernel",
+        "chromedriver-autoinstaller"
+    ]
+
+    print("Asennetaan riippuvuuksia...")
+
+    import subprocess
+    for asennus in asennukset:
+        subprocess.call(
+            [sys.executable, "-m", "pip", "--disable-pip-version-check", "install", asennus])
+
 
 try:
     from selenium import webdriver
     from selenium.webdriver.chrome.options import Options
     import chromedriver_autoinstaller
 except ImportError:
-    import subprocess
-    for asennus in asennukset:
-        subprocess.check_call(
-            [sys.executable, "-m", "pip", "install", asennus])
+    install_missing_dependencies()
+    from selenium import webdriver
+    from selenium.webdriver.chrome.options import Options
+    import chromedriver_autoinstaller
+except ModuleNotFoundError:
+    install_missing_dependencies()
     from selenium import webdriver
     from selenium.webdriver.chrome.options import Options
     import chromedriver_autoinstaller
