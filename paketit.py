@@ -56,7 +56,8 @@ def kaynnista_selain(kaynnista_taustalla=False):
 
     options = Options()
     options.headless = kaynnista_taustalla
-    options.add_extension(CRX_PATH)
+    if kaynnista_taustalla is False:
+        options.add_extension(CRX_PATH)
 
     chromeselain = webdriver.Chrome(options=options)
 
