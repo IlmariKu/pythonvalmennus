@@ -61,13 +61,4 @@ def kaynnista_selain(kaynnista_taustalla=False):
 
     chromeselain = webdriver.Chrome(options=options)
 
-    chromeselain.find_elements_by_class_name = wrong_spelling
-    chromeselain.find_elements_by_css_selector = wrong_spelling
-    chromeselain.find_elements_by_id = wrong_spelling
-    chromeselain.find_elements_by_link_text = wrong_spelling
-    chromeselain.find_elements_by_name = wrong_spelling
-    chromeselain.find_elements_by_partial_link_text = wrong_spelling
-    chromeselain.find_elements_by_tag_name = wrong_spelling
-    chromeselain.find_elements_by_xpath = wrong_spelling
-
     return chromeselain
