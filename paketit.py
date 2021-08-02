@@ -49,9 +49,6 @@ CRX_PATH = ASENNUKSET_PATH + 'xpath.crx'
 
 def kaynnista_selain(kaynnista_taustalla=False):
 
-    def wrong_spelling():
-        print("Valitsit komennon vahingossa väärin. Poista kirjoittamastasi komennosta -s kirjain lopusta. element, ei elements")
-
     chromedriver_autoinstaller.install()
 
     options = Options()
